@@ -23,16 +23,16 @@ namespace SystemTrayApp
             //   3. Remove the Default resource and add your own
             //   4. Modify the next line to Properties.Resources.<YourResource>
             this.Icon = Properties.Resources.Default;
-            this.systemTrayIcon.Icon = Properties.Resources.Default;
+            this.SystemTrayIcon.Icon = Properties.Resources.Default;
 
             // Change the Text property to the name of your application
-            this.systemTrayIcon.Text = "System Tray App";
-            this.systemTrayIcon.Visible = true;
+            this.SystemTrayIcon.Text = "System Tray App";
+            this.SystemTrayIcon.Visible = true;
 
             // Modify the right-click menu of your system tray icon here
             ContextMenu menu = new ContextMenu();
             menu.MenuItems.Add("Exit", ContextMenuExit);
-            this.systemTrayIcon.ContextMenu = menu;
+            this.SystemTrayIcon.ContextMenu = menu;
 
             this.Resize += WindowResize;
             this.FormClosing += WindowClosing;
@@ -47,6 +47,7 @@ namespace SystemTrayApp
 
         private void ContextMenuExit(object sender, EventArgs e)
         {
+            this.SystemTrayIcon.Visible = false;
             Application.Exit();
             Environment.Exit(0);
         }
