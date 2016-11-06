@@ -1,6 +1,6 @@
 ﻿namespace SystemTrayApp
 {
-    partial class Form1
+    partial class AppWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.systemTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.SuspendLayout();
+            // 
+            // systemTrayIcon
+            // 
+            this.systemTrayIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.systemTrayIcon.Visible = true;
+            this.systemTrayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.SystemTrayIconDoubleClick);
+            // 
+            // AppWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "AppWindow";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.NotifyIcon systemTrayIcon;
     }
 }
 
